@@ -31,10 +31,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56878996-3dd4-4629-811a-6946b9997e36" name="Changes" comment="Locale Issue">
+    <list default="true" id="56878996-3dd4-4629-811a-6946b9997e36" name="Changes" comment="Creating Update Appointment Fragment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/FragmentUpdateAppointment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/FragmentUpdateAppointment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/MainActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,20 +188,29 @@
       <option name="project" value="LOCAL" />
       <updated>1703541347794</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Creating Update Appointment Fragment">
+      <option name="closed" value="true" />
+      <created>1703541689331</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1703541689331</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Push before invalidating cache" />
     <MESSAGE value="Locale Issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Locale Issue" />
+    <MESSAGE value="Creating Update Appointment Fragment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating Update Appointment Fragment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/MainActivity.kt</url>
-          <line>23</line>
+          <line>22</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
