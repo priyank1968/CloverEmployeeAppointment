@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Employee Appointment Maker</string>
+    <string name="create_appointment">Create Appointment</string>
+    <string name="temporary_block_list">Temporary block that will soon be retrofit component to list out all the appointments for the employee</string>
+    <string name="temporary_create_text">Temporary block that will soon be having a layout that will take in user inputs to create appointments</string>
+    <string name="temporary_update_text">Temporary block that will soon be having a layout that will take in user inputs to update their existing appointments</string>
+    <string name="temp_update_appointment_button">Update appointment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
