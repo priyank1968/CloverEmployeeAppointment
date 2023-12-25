@@ -1,9 +1,7 @@
 package com.example.employeeappointmentmaker
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.core.view.isEmpty
+import androidx.appcompat.app.AppCompatActivity
 import com.example.employeeappointmentmaker.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonCreate.setOnClickListener {
-            Log.e("test", "fragmentCreateAppointment click")
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragmentLayout, fragmentCreateAppointment)
                 addToBackStack(null)

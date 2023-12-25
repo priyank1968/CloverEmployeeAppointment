@@ -20,18 +20,21 @@
           <theme>@style/Theme.EmployeeAppointmentMaker</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_update_appointment.xml">
+        <config>
+          <theme>@style/Theme.EmployeeAppointmentMaker</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56878996-3dd4-4629-811a-6946b9997e36" name="Changes" comment="Push before invalidating cache">
+    <list default="true" id="56878996-3dd4-4629-811a-6946b9997e36" name="Changes" comment="Locale Issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/CreateAppointment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/FragmentCreateAppointment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/FragmentUpdateAppointment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/FragmentUpdateAppointment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,19 +182,28 @@
       <option name="project" value="LOCAL" />
       <updated>1703538625661</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Locale Issue">
+      <option name="closed" value="true" />
+      <created>1703541347794</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1703541347794</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Push before invalidating cache" />
-    <option name="LAST_COMMIT_MESSAGE" value="Push before invalidating cache" />
+    <MESSAGE value="Locale Issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Locale Issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/employeeappointmentmaker/MainActivity.kt</url>
-          <line>24</line>
+          <line>23</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
