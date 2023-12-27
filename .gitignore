@@ -1,2 +1,23 @@
 # Project exclude paths
 /.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Auto Generated workspace
+.idea/
+
+# Android Studio generated files and folders
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+output.json
+
+# Keystore files
+*.jks
+*.keystore
+
+# Android Profiling
+*.hprof
