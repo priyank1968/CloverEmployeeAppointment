@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         val fragmentList = FragmentAppointmentListView()
         val fragmentCreateAppointment = FragmentCreateAppointment()
+        val fragmentUpdateAppointment = FragmentUpdateAppointment()
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragmentLayout, fragmentList)
@@ -27,5 +28,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.buttonUpdate.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragmentLayout, fragmentUpdateAppointment)
+                addToBackStack(null)
+                commit()
+            }
+        }
+
+        binding.buttonList.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragmentLayout, fragmentList)
+                addToBackStack(null)
+                commit()
+            }
+        }
     }
 }
