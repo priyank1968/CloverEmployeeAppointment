@@ -1,0 +1,84 @@
+name: Release Minor Version on Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-minor:
+    if: ${{ github.event_name != 'workflow_run' && !startsWith(github.event.head_commit.message, 'Merge branch') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Read and Increment Minor Version
+        id: increment_minor
+        run: |
+          # Read the current version from gradle.properties
+          CURRENT_VERSION=$(grep '^version=' gradle.properties | cut -d'=' -f2)
+          echo "Current Version: $CURRENT_VERSION"
+          
+          # Increment the minor version using awk and reset the patch to 0
+          UPDATED_VERSION=$(echo "$CURRENT_VERSION" | awk -F. -v OFS=. '{$2+=1; $3=0; print}')
+          
+          # Replace the version line with the updated version in gradle.properties
+          sed -i "s/^version=.*/version=$UPDATED_VERSION/" gradle.properties
+          
+          echo "Incremented Minor Version: $UPDATED_VERSION"
+          echo "::set-output name=NEW_VERSION::$UPDATED_VERSION"
+          
+          # Output the updated version
+          echo "Updated Version: $UPDATED_VERSION"
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add gradle.properties
+          git commit -m "Incremented minor version"
+          git push
+        
+      - name: Merge Main's Gradle Properties into Develop
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+
+          # Fetch the latest changes for develop
+          git fetch origin develop
+
+          # Checkout the develop branch
+          git checkout develop
+
+          # Check differences in gradle.properties
+          if git diff --exit-code origin/develop origin/main -- gradle.properties; then
+            echo "No differences found in gradle.properties."
+          else
+            echo "Differences found in gradle.properties. Proceeding with merge."
+
+            # Checkout the gradle.properties file from main into develop without committing
+            git checkout origin/main -- gradle.properties
+
+            # Stage the changes
+            git add --force gradle.properties
+
+            # Commit changes
+            git commit -m "Merge gradle.properties from main into develop"
+
+            # Push to develop
+            git push origin develop
+          fi
+
+      - name: Create GitHub Package Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.increment_minor.outputs.NEW_VERSION }}
+          release_name: Release v${{ steps.increment_minor.outputs.NEW_VERSION }}
+          body: |
+            Automatic minor version release: v${{ steps.increment_minor.outputs.NEW_VERSION }}
+          draft: false
+          prerelease: false
