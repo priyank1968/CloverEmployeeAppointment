@@ -1,0 +1,58 @@
+name: Release Patch Version on Develop
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  release-patch:
+    if: ${{ github.event_name != 'workflow_run' && !contains(github.event.head_commit.message, 'Merge branch') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Read and Increment Patch Version
+        id: increment_patch
+        run: |
+          # Read the current version from gradle.properties
+          CURRENT_VERSION=$(grep '^version=' gradle.properties | cut -d'=' -f2)
+          echo "Current Version: $CURRENT_VERSION"
+          echo "Commit Message: ${{ github.event.head_commit.message }}"
+      
+          # Increment the patch version using awk and maintain the dots
+          UPDATED_VERSION=$(echo "$CURRENT_VERSION" | awk -F. -v OFS=. '{$3+=1; print}')
+      
+          # Replace the version line with the updated version in gradle.properties
+          # Replace the version line with the updated version in a temporary file
+          sed "s/^version=.*/version=$UPDATED_VERSION/" gradle.properties > gradle.properties.tmp
+      
+          # Replace the original file with the updated temporary file
+          mv gradle.properties.tmp gradle.properties
+          echo "Incremented Patch Version: $UPDATED_VERSION"
+          echo "::set-output name=NEW_VERSION::$UPDATED_VERSION"
+      
+          # Output the updated version
+          echo "Updated Version: $UPDATED_VERSION"
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add gradle.properties
+          git commit -m "Incremented patch version"
+          git push
+
+      - name: Create GitHub Package Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.increment_patch.outputs.NEW_VERSION }}
+          release_name: Release v${{ steps.increment_patch.outputs.NEW_VERSION }}
+          body: |
+            Automatic patch version release: v${{ steps.increment_patch.outputs.NEW_VERSION }}
+          draft: false
+          prerelease: false
