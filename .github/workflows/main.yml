@@ -3,7 +3,7 @@ name: Release Patch Version on Develop
 on:
   push:
     branches:
-      - develop
+      - development
 
 jobs:
   release-patch:
