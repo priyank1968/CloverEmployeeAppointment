@@ -35,13 +35,5 @@ class MainActivity : AppCompatActivity() {
                 commit()
             }
         }
-
-        binding.buttonList.setOnClickListener {
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentLayout, fragmentList)
-                addToBackStack(null)
-                commit()
-            }
-        }
     }
 }

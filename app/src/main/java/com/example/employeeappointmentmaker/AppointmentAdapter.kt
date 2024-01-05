@@ -1,25 +1,23 @@
-package com.example.employeeappointmentmaker
-
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.employeeappointmentmaker.databinding.ItemAppointmentBinding
 import com.example.employeeappointmentmaker.models.Appointment
 
 class AppointmentAdapter(private var appointments: List<Appointment>) :
     RecyclerView.Adapter<AppointmentAdapter.AppointmentViewHolder>() {
 
-    inner class AppointmentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val titleTextView: TextView = itemView.findViewById(R.id.textViewTitle)
-        val dateTimeTextView: TextView = itemView.findViewById(R.id.textViewDate)
-        val descriptionTextView: TextView = itemView.findViewById(R.id.textViewDescription)
+    inner class AppointmentViewHolder(private val binding: ItemAppointmentBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        val titleTextView = binding.textViewTitle
+        val dateTimeTextView = binding.textViewDate
+        val descriptionTextView = binding.textViewDescription
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppointmentViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_appointment, parent, false)
-        return AppointmentViewHolder(itemView)
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemAppointmentBinding.inflate(inflater, parent, false)
+        return AppointmentViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: AppointmentViewHolder, position: Int) {
