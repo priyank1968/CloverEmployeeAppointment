@@ -5,6 +5,8 @@
     <string name="temporary_create_text">Temporary block that will soon be having a layout that will take in user inputs to create appointments</string>
     <string name="temporary_update_text">Temporary block that will soon be having a layout that will take in user inputs to update their existing appointments</string>
     <string name="temp_update_appointment_button">Update appointment</string>
+    <string name="temp_list_appointments_button">List Appointments</string>
+    <string name="date_time_placeholder">%1\$s, %2\$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
