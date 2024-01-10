@@ -4,4 +4,15 @@
     <dimen name="double_margin">16dp</dimen>
     <dimen name="triple_margin">24dp</dimen>
     <dimen name="quad_margin">32dp</dimen>
+    <dimen name="margin_top_bottom">8dp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="recycler_width">358dp</dimen>
+    <dimen name="recycler_height">551dp</dimen>
+    <dimen name="recycler_padding">8dp</dimen>
+    <dimen name="padding_left">4dp</dimen>
+    <dimen name="padding_top">4dp</dimen>
+    <dimen name="padding_right">4dp</dimen>
+    <dimen name="padding_bottom">4dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
 </resources>
